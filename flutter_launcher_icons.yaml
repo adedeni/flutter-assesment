@@ -1,0 +1,18 @@
+#--------------- APP ICON CONFIG ------------------#
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logos/app_icon.jpeg"
+
+  # Android adaptive icon
+  adaptive_icon_background: "#1D77D6"
+  adaptive_icon_foreground: "assets/logos/app_icon.jpeg"
+
+  # iOS
+  remove_alpha_ios: true
+
+#  flutter pub get
+#  flutter pub run flutter_launcher_icons:main
+#  flutter clean
+#  flutter run
+
