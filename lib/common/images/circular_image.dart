@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../constants/colors.dart';
-import '../../../constants/sizes.dart';
+import '../../constants/colors.dart';
+import '../../constants/sizes.dart';
 
 class ACircularImage extends StatelessWidget {
   const ACircularImage({

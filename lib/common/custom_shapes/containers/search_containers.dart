@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../../constants/colors.dart';
-import '../../../../constants/device_utility.dart';
-import '../../../../constants/sizes.dart';
+import '../../../constants/colors.dart';
+import '../../../constants/device_utility.dart';
+import '../../../constants/sizes.dart';
 
 class ASearchContainer extends StatelessWidget {
   const ASearchContainer({

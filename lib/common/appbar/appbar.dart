@@ -3,9 +3,9 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../constants/colors.dart';
-import '../../../constants/device_utility.dart';
-import '../../../constants/sizes.dart';
+import '../../constants/colors.dart';
+import '../../constants/device_utility.dart';
+import '../../constants/sizes.dart';
 
 
 class AAppBar extends StatelessWidget implements PreferredSizeWidget {
