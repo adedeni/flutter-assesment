@@ -1,0 +1,16 @@
+# Flutter generated files
+.dart_tool/
+build/
+.packages
+.pub-cache/
+
+# IDE files
+*.iml
+.idea/
+.vscode/
+
+# Operating system
+/linux/
+/macos/
+/web/
+/windows/
