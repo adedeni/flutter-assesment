@@ -1,5 +1,5 @@
 /// This class contains all the App Images in String formats.
-class Images {
+class AImages {
 
   // App Logos
   static const String appLogo = "assets/logos/app_icon.jpeg";

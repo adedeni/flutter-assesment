@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-
 import 'constants/text_strings.dart';
-
+import 'dashboard/screens/dashboard_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: Texts.appName,
+
+    return MaterialApp(
+      title: ATexts.appName,
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Text('data'),     ),
+      home: const DashboardScreen(),
     );
   }
 }

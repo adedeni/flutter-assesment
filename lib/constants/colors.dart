@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppColors {
+class AColors {
   // Primary Medical Center Colors (from Figma)
   static const Color primary = Color(0xFF0D6EFD); // Blue
   static const Color secondary = Color(0xFF00D9F5); // Cyan

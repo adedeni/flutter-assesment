@@ -1,6 +1,6 @@
 
 /// This class contains all the App Text in String formats.
-class Texts {
+class ATexts {
 
   // -- GLOBAL Texts
   static const String appName = "paxform";
