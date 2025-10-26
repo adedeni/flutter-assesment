@@ -1,5 +1,7 @@
 # paxform
 
+<p align="center"><img src="assets/logos/app_icon.jpeg" alt="paxform logo" width="120"/></p>
+
 A medical center technical assessment UI built with Flutter. This repository contains a small sample app that demonstrates a medical-center style dashboard with components such as appointment cards, doctor lists, category icons, and a carousel for nearby medical centers.
 
 ## Table of contents
@@ -24,6 +26,10 @@ A medical center technical assessment UI built with Flutter. This repository con
 
 The app launches directly into a `DashboardScreen` showcasing appointment information, quick actions, categories, nearest doctors, and nearby medical centers.
 
+## App preview
+
+<p align="center"><img src="assets/images/screenshot.png" alt="App screenshot" width="720"/></p>
+
 ## Features
 
 - Curved header and footer components
@@ -46,8 +52,8 @@ The app launches directly into a `DashboardScreen` showcasing appointment inform
 1. Clone the repository:
 
 ```bash
-git clone <repo-url>
-cd flutter-assesment
+git clone <https://github.com/adedeni/flutter-assesment>
+cd flutter-assessment
 ```
 
 2. Get packages:
@@ -137,10 +143,6 @@ The main dependencies declared in `pubspec.yaml` include (versions as in project
 - iconsax ^0.0.8
 - cupertino_icons ^1.0.8
 - flutter_svg ^2.0.10+1
-- get ^4.7.2
-- carousel_slider ^5.1.1
-- flutter_rating_bar ^4.0.1
-- dropdown_button2 ^2.3.9
 
 Dev dependencies:
 
@@ -188,33 +190,11 @@ Quality gates to check locally:
 - Asset not found: Check paths in `lib/constants/image_strings.dart` and `pubspec.yaml` and ensure files are present under `assets/`.
 - Dependency issues: Run `flutter pub get` and confirm your Flutter SDK version satisfies the `environment` constraint in `pubspec.yaml`.
 
-## Contributing
 
-Contributions are welcome. Suggested steps for contributors:
-
-1. Fork the repository and create a feature branch.
-2. Make changes, run `flutter format .` and `flutter analyze` locally.
-3. Add or update tests if you change behavior.
-4. Submit a pull request describing the change, rationale, and any verification steps.
-
-Please include a clear description of any UI changes and screenshots if applicable.
-
-## License & contact
-
-No license file is included in this repository. If you intend to publish or share this project, add a `LICENSE` file (for example, an MIT license) to make reuse terms explicit.
-
-For questions or clarifications, open an issue in the repository.
-
----
+<p align="center"><img src="assets/logos/app_icon.jpeg" alt="paxform logo" width="60"/></p>
 
 ### Notes & assumptions made while writing this README
 
 - The app is a UI-focused demo using locally-provided mock data (see `lib/data/mock_data.dart`).
 - The font family is declared as `PublicSans` in `pubspec.yaml` and multiple weights are present in `assets/fonts/`.
-- The project does not include a `LICENSE` file, so no license text is provided here.
 
-If you want, I can:
-- Add a short visual README screenshot section (if you point to screenshots),
-- Add a `LICENSE` file (MIT) and commit it,
-- Add a short CONTRIBUTING.md or CODE_OF_CONDUCT.md,
-- Or update `lib/app.dart` to add more detailed `textTheme` mappings (e.g., mapping our `ATextStyles` constants to `ThemeData.textTheme`).
