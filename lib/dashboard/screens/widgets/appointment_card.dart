@@ -1,136 +1,133 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:paxform/common/icons/svg_icons.dart';
+import 'package:paxform/common/images/circular_image.dart';
+import 'package:paxform/constants/image_strings.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/sizes.dart';
 import '../../models/appointment_model.dart';
 
-
 class AppointmentCard extends StatelessWidget {
-  const AppointmentCard({
-    super.key,
-    required this.appointment,
-  });
+  const AppointmentCard({super.key, required this.appointment});
 
   final Appointment appointment;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(ASizes.md),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [AColors.primary, AColors.secondary],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(ASizes.borderRadiusLg),
-      ),
-      child: Column(
-        children: [
-          // Doctor Info Row
-          Row(
+    return Stack(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(ASizes.md),
+          decoration: BoxDecoration(
+            color: AColors.cardBackground,
+            borderRadius: BorderRadius.circular(ASizes.borderRadiusLg),
+          ),
+          child: Column(
             children: [
-              // Doctor Image
+              // Doctor Info Row
               Container(
-                width: 48,
-                height: 48,
+                width: double.maxFinite,
+
+                padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: AColors.white,
-                  shape: BoxShape.circle,
+                  borderRadius: BorderRadius.circular(ASizes.borderRadiusMd),
                 ),
-                child: Icon(
-                  Icons.person,
-                  color: AColors.primary,
-                  size: 28,
-                ),
-              ),
-              const SizedBox(width: ASizes.sm),
-              // Doctor Details
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: [
-                    Text(
-                      appointment.doctorName,
-                      style: TextStyle(
-                        color: AColors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    ACircularImage(
+                      width: 38,
+                      height: 38,
+                      image: AImages.doctor1,
                     ),
-                    Text(
-                      '${appointment.doctorSpecialty} • ${appointment.doctorLocation}',
-                      style: TextStyle(
-                        color: AColors.white.withAlpha(225),
-                        fontSize: 12,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                    SizedBox(width: ASizes.sm + 2),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Jason Smith',
+                          style: Theme.of(context).textTheme.displayLarge,
+                        ),
+                        Text.rich(
+                          TextSpan(
+                            style: Theme.of(context).textTheme.displayMedium,
+                            children: <TextSpan>[
+                              TextSpan(text: 'Dentist '),
+                              TextSpan(text: ' • '),
+                              TextSpan(text: 'ABC Medical Center '),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
-          const SizedBox(height: ASizes.md),
-          // Date, Time, and Navigation Button
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // Date
+              const SizedBox(height: ASizes.lg),
+              // Date, Time, and Navigation Button
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
-                    Iconsax.calendar,
-                    color: AColors.white,
-                    size: 18,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Date
+                      Row(
+                        children: [
+                          ASvgIcon(
+                            svgIconName: AImages.calendar,
+                            width: 18,
+                            height: 18,
+                          ),
+                          const SizedBox(width: ASizes.sm),
+                          Text(
+                            appointment.formattedDate,
+                            style: Theme.of(context).textTheme.labelLarge!
+                                .copyWith(color: AColors.white),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: ASizes.sm),
+                      // Time
+                      Row(
+                        children: [
+                          ASvgIcon(
+                            svgIconName: AImages.clock,
+                            width: 18,
+                            height: 18,
+                          ),
+                          const SizedBox(width: ASizes.sm),
+                          Text(
+                            appointment.appointmentTime,
+                            style: Theme.of(context).textTheme.labelLarge!
+                                .copyWith(color: AColors.white),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: ASizes.xs),
-                  Text(
-                    appointment.formattedDate,
-                    style: TextStyle(
+                  // Navigation Button
+                  Container(
+                    width: 52,
+                    height: 52,
+                    decoration: BoxDecoration(
                       color: AColors.white,
-                      fontSize: 13,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Image(image: AssetImage(AImages.navigations)),
                     ),
                   ),
                 ],
               ),
-              // Time
-              Row(
-                children: [
-                  Icon(
-                    Iconsax.clock,
-                    color: AColors.white,
-                    size: 18,
-                  ),
-                  const SizedBox(width: ASizes.xs),
-                  Text(
-                    appointment.appointmentTime,
-                    style: TextStyle(
-                      color: AColors.white,
-                      fontSize: 13,
-                    ),
-                  ),
-                ],
-              ),
-              // Navigation Button
-              Container(
-                width: 36,
-                height: 36,
-                decoration: BoxDecoration(
-                  color: AColors.white,
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.arrow_forward,
-                  color: AColors.primary,
-                  size: 20,
-                ),
-              ),
             ],
           ),
-        ],
-      ),
+        ),
+        Positioned(
+          top: 105,
+          left: -1,
+          child: ASvgIcon(svgIconName: AImages.zigZag),
+        ),
+      ],
     );
   }
 }

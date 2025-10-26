@@ -37,8 +37,8 @@ class ASizes {
 
   // Border radius
   static const double borderRadiusSm = 4.0;
-  static const double borderRadiusMd = 8.0;
-  static const double borderRadiusLg = 12.0;
+  static const double borderRadiusMd = 12.0;
+  static const double borderRadiusLg = 16.0;
 
   // Divider height
   static const double dividerHeight = 1.0;

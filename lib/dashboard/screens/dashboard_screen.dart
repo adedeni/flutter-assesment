@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:paxform/common/icons/svg_icons.dart';
+import 'package:paxform/common/layouts/appointment_slider.dart';
+import 'package:paxform/constants/image_strings.dart';
 import '../../common/appbar/appbar.dart';
-import '../../common/custom_shapes/containers/search_containers.dart';
+import '../../common/appbar/curve_appbar.dart';
 import '../../common/layouts/grid_layout.dart';
 import '../../common/texts/section_heading.dart';
 import '../../constants/colors.dart';
@@ -25,124 +28,149 @@ class DashboardScreen extends StatelessWidget {
     final medicalCenters = MockData.getMedicalCenters();
 
     return Scaffold(
-      backgroundColor: AColors.background,
-      appBar: AAppBar(
-        title: Text(
-          'Medical Center',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            color: AColors.textPrimary,
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.filter_list, color: AColors.textPrimary),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.notifications_outlined,
-              color: AColors.textPrimary,
-            ),
-            onPressed: () {},
-          ),
-        ],
-      ),
+      backgroundColor: AColors.primary,
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(ASizes.defaultSpace),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildSearchBar(),
-              const SizedBox(height: ASizes.spaceBtwSections),
-
-              // Current Appointment Card
-              AppointmentCard(appointment: appointment),
-              const SizedBox(height: ASizes.spaceBtwSections),
-
-              // Quick Actions
-              _buildQuickActions(),
-              const SizedBox(height: ASizes.spaceBtwSections),
-
-              // Categories Section
-              ASectionHeading(
-                title: 'Categories',
-                showActionButton: true,
-                buttonTitle: 'See All',
-                onPressed: () {},
+        child: Column(
+          children: [
+            // Curved Header AppBar
+            CurvedAppBarHeader(
+              child: Column(
+                children: [
+                  // AppBar
+                  AAppBar(title: Text('Medical Center')),
+                ],
               ),
-              const SizedBox(height: ASizes.spaceBtwItems),
-              AGridLayout(
-                itemCount: categories.length,
-                crossAxisCount: 4,
-                mainAxisExtent: 90,
-                itemBuilder: (context, index) {
-                  return CategoryItem(category: categories[index]);
-                },
-              ),
-              const SizedBox(height: ASizes.spaceBtwSections),
+            ),
 
-              // Nearest Doctors Section
-              ASectionHeading(
-                title: 'Nearest Doctors',
-                showActionButton: true,
-                buttonTitle: 'See All',
-                onPressed: () {},
+            // Main Content
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: ASizes.defaultSpace,
               ),
-              const SizedBox(height: ASizes.spaceBtwItems),
-              ...doctors.map(
-                (doctor) => Padding(
-                  padding: const EdgeInsets.only(bottom: ASizes.spaceBtwItems),
-                  child: DoctorCard(doctor: doctor),
-                ),
-              ),
-              const SizedBox(height: ASizes.spaceBtwSections),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Image(image: AssetImage(AImages.bottomBarSwitch)),
+                  ),
+                  // Search Bar
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: ASizes.md),
+                    child: Row(
+                      children: [
+                        Expanded(child: const SearchBar()),
+                        const SizedBox(width: ASizes.spaceBtwItems),
+                        // Picture search container
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: ASizes.md / 1.5,
+                            vertical: ASizes.md / 1.5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: AColors.lightContainer,
+                            borderRadius: BorderRadius.circular(
+                              ASizes.borderRadiusLg,
+                            ),
+                          ),
+                          child: ASvgIcon(
+                            svgIconName: AImages.gallery,
+                            iconColor: AColors.background,
+                            height: ASizes.iconMd * 1.5,
+                            width: ASizes.iconMd * 1.5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
 
-              // Nearest Medical Center Section
-              ASectionHeading(
-                title: 'Nearest Medical Center',
-                showActionButton: true,
-                buttonTitle: 'See All',
-                onPressed: () {},
-              ),
-              const SizedBox(height: ASizes.spaceBtwItems),
-              SizedBox(
-                height: 220,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: medicalCenters.length,
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(width: ASizes.spaceBtwItems),
-                  itemBuilder: (context, index) {
-                    return MedicalCenterCard(center: medicalCenters[index]);
-                  },
-                ),
-              ),
-              const SizedBox(height: ASizes.spaceBtwSections),
+                  // Current Appointment Card
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: ASizes.md),
+                    child: AppointmentCard(appointment: appointment),
+                  ),
+                  AppointmentSliderIndicator(currentIndex: 0, totalCount: 3),
+                  const SizedBox(height: ASizes.spaceBtwSections),
 
-              // Bottom Security Info
-              const SecurityInfoCard(),
-              const SizedBox(height: ASizes.defaultSpace),
-            ],
-          ),
+                  // Quick Actions
+                  const QuickActions(),
+                  const SizedBox(height: ASizes.spaceBtwSections),
+
+                  // Categories Section
+                  ASectionHeading(
+                    title: 'Categories',
+                    showActionButton: true,
+                    buttonTitle: 'See All',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: ASizes.spaceBtwItems),
+                  AGridLayout(
+                    itemCount: categories.length,
+                    crossAxisCount: 4,
+                    mainAxisExtent: 90,
+                    itemBuilder: (context, index) {
+                      return CategoryItem(category: categories[index]);
+                    },
+                  ),
+                  const SizedBox(height: ASizes.spaceBtwSections),
+
+                  // Nearest Doctors Section
+                  ASectionHeading(
+                    title: 'Nearest Doctors',
+                    showActionButton: true,
+                    buttonTitle: 'See All',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: ASizes.spaceBtwItems),
+                  ...doctors.map(
+                    (doctor) => Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: ASizes.spaceBtwItems,
+                      ),
+                      child: DoctorCard(doctor: doctor),
+                    ),
+                  ),
+                  const SizedBox(height: ASizes.spaceBtwSections),
+
+                  // Nearest Medical Center Section
+                  ASectionHeading(
+                    title: 'Nearest Medical Center',
+                    showActionButton: true,
+                    buttonTitle: 'See All',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: ASizes.spaceBtwItems),
+                  SizedBox(
+                    height: 220,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: medicalCenters.length,
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(width: ASizes.spaceBtwItems),
+                      itemBuilder: (context, index) {
+                        return MedicalCenterCard(center: medicalCenters[index]);
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: ASizes.spaceBtwSections),
+
+                  // Bottom Security Info
+                  const SecurityInfoCard(),
+                  const SizedBox(height: ASizes.defaultSpace),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
+}
 
-  Widget _buildSearchBar() {
-    return ASearchContainer(
-      text: 'Search',
-      showBackground: true,
-      showBorder: true,
-      padding: EdgeInsets.zero,
-      onTap: () {},
-    );
-  }
+class QuickActions extends StatelessWidget {
+  const QuickActions({super.key});
 
-  Widget _buildQuickActions() {
+  @override
+  Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
@@ -150,9 +178,9 @@ class DashboardScreen extends StatelessWidget {
             icon: Icons.medical_services_outlined,
             title: 'Book Doctor\nAppointment',
             subtitle: 'Find a Doctor or\nSpecialist',
-            backgroundColor: AColors.categoryBlue,
+            backgroundColor: AColors.categoryColor1,
             iconColor: AColors.primary,
-            onTap: () {},
+
           ),
         ),
         const SizedBox(width: ASizes.spaceBtwItems),
@@ -161,12 +189,54 @@ class DashboardScreen extends StatelessWidget {
             icon: Icons.local_hospital_outlined,
             title: 'Book Hospital\nAppointment',
             subtitle: 'Locate nearby hospital\nto visit',
-            backgroundColor: AColors.categoryGreen,
+            backgroundColor: AColors.categoryColor2,
             iconColor: Colors.green,
-            onTap: () {},
+
           ),
         ),
       ],
+    );
+  }
+}
+
+class SearchBar extends StatelessWidget {
+  const SearchBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: ASizes.lg,
+        vertical: ASizes.md,
+      ),
+      decoration: BoxDecoration(
+        color: AColors.lightContainer,
+        borderRadius: BorderRadius.circular(ASizes.borderRadiusLg),
+      ),
+      child: Row(
+        children: [
+          ASvgIcon(
+            svgIconName: AImages.searchIcon,
+            iconColor: AColors.black,
+            height: ASizes.iconMd,
+            width: ASizes.iconMd,
+          ),
+          const SizedBox(width: ASizes.sm),
+          Expanded(
+            child: Text(
+              'Search',
+
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ),
+          ASvgIcon(
+            svgIconName: AImages.settingIcon,
+            iconColor: AColors.black,
+            height: ASizes.iconMd,
+            width: ASizes.iconMd,
+          ),
+        ],
+      ),
     );
   }
 }
