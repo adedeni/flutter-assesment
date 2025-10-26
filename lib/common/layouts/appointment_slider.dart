@@ -18,17 +18,14 @@ class AppointmentSliderIndicator extends StatelessWidget {
       children: List.generate(
         totalCount,
         (index) => Container(
-          width: 18, 
-          height: 4, 
+          width: 18,
+          height: 4,
           margin: const EdgeInsets.symmetric(horizontal: 4),
           decoration: BoxDecoration(
             color: index == currentIndex
-                ? AColors
-                      .slider
+                ? AColors.slider
                 : AColors.slider.withAlpha(55),
-            borderRadius: BorderRadius.circular(
-              2,
-            ), 
+            borderRadius: BorderRadius.circular(2),
           ),
         ),
       ),

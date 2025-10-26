@@ -97,7 +97,6 @@ class MockData {
         location: 'Horizon Medical Center',
         distance: '2km Away',
         isFavorite: false,
-      
       ),
       Doctor(
         id: '2',

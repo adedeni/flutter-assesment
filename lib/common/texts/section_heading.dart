@@ -23,27 +23,29 @@ class ASectionHeading extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(
-            context,
-          ).textTheme.titleLarge,
+          style: Theme.of(context).textTheme.titleLarge,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        
-          Row(
-            children: [
-              Text(
-                buttonTitle,
-                style: Theme.of(
-                  context,
-                ).textTheme.titleMedium!.apply(color: textColor),
-                maxLines: 1,
-              ),
-              SizedBox(width: ASizes.sm,),
-              ASvgIcon(svgIconName: AImages.arrow, width: 16, height: 16, iconColor: textColor,)
-          
-            ],
-          ),
+
+        Row(
+          children: [
+            Text(
+              buttonTitle,
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium!.apply(color: textColor),
+              maxLines: 1,
+            ),
+            SizedBox(width: ASizes.sm),
+            ASvgIcon(
+              svgIconName: AImages.arrow,
+              width: 16,
+              height: 16,
+              iconColor: textColor,
+            ),
+          ],
+        ),
       ],
     );
   }

@@ -15,7 +15,7 @@ class CurvedAppBarHeader extends StatelessWidget {
         color: AColors.background,
         padding: const EdgeInsets.only(bottom: 0),
         child: SizedBox(
-          height: ASizes.appBarHeight * 2.2,
+          height: ASizes.appBarHeight * 2.5,
           child: Stack(
             children: [
               // Content

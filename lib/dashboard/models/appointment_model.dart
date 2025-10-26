@@ -19,8 +19,18 @@ class Appointment {
 
   String get formattedDate {
     final months = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
     ];
     return '${appointmentDate.day} ${months[appointmentDate.month - 1]} ${appointmentDate.year}';
   }

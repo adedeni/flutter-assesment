@@ -10,6 +10,7 @@ import '../../common/appbar/appbar.dart';
 
 import '../../common/appbar/curve_appbar.dart';
 
+import '../../common/appbar/curved_footer.dart';
 import '../../common/layouts/grid_layout.dart';
 
 import '../../common/texts/section_heading.dart';
@@ -27,7 +28,6 @@ import 'widgets/appointment_card.dart';
 import 'widgets/category_item.dart';
 
 import 'widgets/doctor_card.dart';
-
 import 'widgets/medical_center_card.dart';
 
 import 'widgets/security_info_card.dart';
@@ -57,8 +57,10 @@ class DashboardScreen extends StatelessWidget {
             CurvedAppBarHeader(
               child: Column(
                 children: [
+                  const SizedBox(height: ASizes.spaceBtwItems),
                   // AppBar
                   AAppBar(title: Text('Medical Center')),
+                  const SizedBox(height: ASizes.spaceBtwItems),
                 ],
               ),
             ),
@@ -171,41 +173,32 @@ class DashboardScreen extends StatelessWidget {
                     ),
                   ),
 
-                  // Nearest Medical Center Section
+                  // Nearest Doctors Section
                   ASectionHeading(
                     title: 'Nearest Medical Center',
-
                     buttonTitle: 'See All',
-
                     textColor: AColors.background,
                   ),
-
                   const SizedBox(height: ASizes.spaceBtwItems),
-
                   SizedBox(
                     height: 250,
-
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
-
                       itemCount: medicalCenters.length,
-
                       separatorBuilder: (context, index) =>
                           const SizedBox(width: ASizes.spaceBtwItems),
-
                       itemBuilder: (context, index) {
                         return MedicalCenterCard(center: medicalCenters[index]);
                       },
                     ),
                   ),
-
                   const SizedBox(height: ASizes.spaceBtwItems),
-
-                  // Bottom Security Info
-                  const SecurityInfoCard(),
                 ],
               ),
             ),
+
+            // Bottom Security Info with Curved Footer
+            CurvedFooter(child: SecurityInfoCard()),
           ],
         ),
       ),

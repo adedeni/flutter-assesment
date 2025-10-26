@@ -8,7 +8,6 @@ class AAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final Widget? title;
 
-
   @override
   Widget build(BuildContext context) {
     return AppBar(

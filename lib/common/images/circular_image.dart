@@ -29,7 +29,7 @@ class ACircularImage extends StatelessWidget {
       child: Center(
         child: Image(
           fit: fit,
-          image:AssetImage(image) as ImageProvider,
+          image: AssetImage(image) as ImageProvider,
           color: overlayColor,
         ),
       ),

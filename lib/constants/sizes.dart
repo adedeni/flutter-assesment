@@ -1,4 +1,3 @@
-
 class ASizes {
   // Padding and margin sizes
   static const double xs = 4.0;
@@ -60,11 +59,8 @@ class ASizes {
   // Grid view spacing
   static const double gridViewSpacing = 16.0;
   //Others
-    static const double searchBarHeight = 48.0;
+  static const double searchBarHeight = 48.0;
   static const double categoryItemSize = 70.0;
   static const double doctorImageSize = 48.0;
   static const double medicalCenterCardWidth = 200.0;
 }
-
-
-

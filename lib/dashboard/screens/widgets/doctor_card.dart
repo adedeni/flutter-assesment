@@ -136,12 +136,12 @@ class DoctorCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: ASizes.sm),
-          Divider(),
+          Divider(height: 1.5, color: Color(0xFFF2F4F5)),
           const SizedBox(height: ASizes.sm),
           // Location
           Row(
             children: [
-               ASvgIcon(
+              ASvgIcon(
                 svgIconName: AImages.location,
                 width: 18,
                 height: 18,
@@ -151,9 +151,9 @@ class DoctorCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   doctor.location,
-                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                    color: AColors.location,
-                  ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.displayMedium!.copyWith(color: AColors.location),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -161,8 +161,8 @@ class DoctorCard extends StatelessWidget {
               Text(
                 doctor.distance,
                 style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                    color: AColors.textSecondary,
-                  ),
+                  color: AColors.textSecondary,
+                ),
               ),
             ],
           ),

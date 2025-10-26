@@ -12,7 +12,6 @@ class Doctor {
   final String distance;
   final bool isFavorite;
 
-
   Doctor({
     required this.id,
     required this.name,
