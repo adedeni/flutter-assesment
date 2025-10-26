@@ -11,17 +11,17 @@ class AImages {
   static const String medicalCenter2 = "assets/images/centers/center2.jpg";
 
   // Category Icons
-  static const String iconGeneral = "assets/icons/categories/general.png";
-  static const String iconHeart = "assets/icons/categories/heart.png";
-  static const String iconDentist = "assets/icons/categories/dentist.png";
-  static const String iconSkin = "assets/icons/categories/skin.png";
-  static const String iconStomach = "assets/icons/categories/stomach.png";
-  static const String iconLung = "assets/icons/categories/lung.png";
-  static const String iconBone = "assets/icons/categories/bone.png";
-  static const String iconCTN = "assets/icons/categories/ctn.png";
+  static const String general = "assets/icons/general.svg"; 
+  static const String heart = "assets/icons/heart.svg";
+  static const String dentist = "assets/icons/dentist.svg";
+  static const String skin = "assets/icons/skin.svg";
+  static const String stomach = "assets/icons/stomach.svg";
+  static const String lungs = "assets/icons/lungs.svg";
+  static const String bone = "assets/icons/bone.svg";
+  static const String etn = "assets/icons/etn.svg";
 
   // Icons
-
+static const String arrow = "assets/icons/arrow_forward.svg";
   static const String bottomBarSwitch = "assets/icons/bottombar_line.png";
   static const String searchIcon = "assets/icons/searchIcon.svg";
   static const String settingIcon = "assets/icons/settingIcon.svg";
@@ -31,4 +31,6 @@ class AImages {
   static const String clock = "assets/icons/clock.svg";
   static const String navigations = "assets/icons/navigation.png";
   static const String navigation = "assets/icons/navigation.svg";
+  static const String appointment = "assets/images/appointment.svg";
+  static const String hospital = "assets/images/hospital.svg";
 }

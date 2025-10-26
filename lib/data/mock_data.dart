@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import '../constants/colors.dart';
 import '../constants/image_strings.dart';
 import '../dashboard/models/appointment_model.dart';
 import '../dashboard/models/doctor_model.dart';
 import '../dashboard/models/medical_center_model.dart';
 import '../dashboard/models/category_model.dart';
-
 
 class MockData {
   // Current Appointment
@@ -28,57 +26,56 @@ class MockData {
       MedicalCategory(
         id: '1',
         name: 'General',
-        icon: Iconsax.health,
-        backgroundColor: AColors.categoryColor1,
+        icon: AImages.general,
+
         iconColor: AColors.primary,
       ),
       MedicalCategory(
         id: '2',
         name: 'Heart',
-        icon: Iconsax.heart,
-        backgroundColor: AColors.categoryColor2,
+        icon: AImages.heart,
+
         iconColor: Colors.red,
       ),
       MedicalCategory(
         id: '3',
         name: 'Dentist',
-        icon: Iconsax.hospital,
-        backgroundColor: AColors.categoryPurple,
+        icon: AImages.dentist,
+
         iconColor: Colors.purple,
       ),
       MedicalCategory(
         id: '4',
         name: 'Skin',
-        icon: Iconsax.user,
-        backgroundColor: AColors.categoryColor1,
+        icon: AImages.skin,
+
         iconColor: AColors.primary,
       ),
       MedicalCategory(
         id: '5',
         name: 'Stomach',
-        icon: Iconsax.activity,
-        backgroundColor: AColors.categoryOrange,
+        icon: AImages.stomach,
+
         iconColor: Colors.orange,
       ),
       MedicalCategory(
         id: '6',
         name: 'Lung',
-        icon: Iconsax.wind,
-        backgroundColor: AColors.categoryGreen,
+        icon: AImages.lungs,
+
         iconColor: Colors.green,
       ),
       MedicalCategory(
         id: '7',
         name: 'Bone',
-        icon: Iconsax.firstline,
-        backgroundColor: AColors.categoryYellow,
+        icon: AImages.bone,
+
         iconColor: Colors.amber,
       ),
       MedicalCategory(
         id: '8',
         name: 'E.T.N',
-        icon: Iconsax.scan,
-        backgroundColor: AColors.categoryPurple,
+        icon: AImages.etn,
         iconColor: Colors.deepPurple,
       ),
     ];

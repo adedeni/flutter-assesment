@@ -114,7 +114,7 @@ class AppointmentCard extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: Center(
-                      child: Image(image: AssetImage(AImages.navigations)),
+                      child: ASvgIcon(svgIconName: AImages.navigation),
                     ),
                   ),
                 ],

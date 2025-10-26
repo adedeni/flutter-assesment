@@ -89,19 +89,14 @@ class DashboardScreen extends StatelessWidget {
                     child: AppointmentCard(appointment: appointment),
                   ),
                   AppointmentSliderIndicator(currentIndex: 0, totalCount: 3),
-                  const SizedBox(height: ASizes.spaceBtwSections),
+                  const SizedBox(height: ASizes.spaceBtwItems),
 
                   // Quick Actions
                   const QuickActions(),
-                  const SizedBox(height: ASizes.spaceBtwSections),
+                  const SizedBox(height: ASizes.spaceBtwItems),
 
                   // Categories Section
-                  ASectionHeading(
-                    title: 'Categories',
-                    showActionButton: true,
-                    buttonTitle: 'See All',
-                    onPressed: () {},
-                  ),
+                  ASectionHeading(title: 'Categories', buttonTitle: 'See All'),
                   const SizedBox(height: ASizes.spaceBtwItems),
                   AGridLayout(
                     itemCount: categories.length,
@@ -116,9 +111,7 @@ class DashboardScreen extends StatelessWidget {
                   // Nearest Doctors Section
                   ASectionHeading(
                     title: 'Nearest Doctors',
-                    showActionButton: true,
                     buttonTitle: 'See All',
-                    onPressed: () {},
                   ),
                   const SizedBox(height: ASizes.spaceBtwItems),
                   ...doctors.map(
@@ -134,9 +127,8 @@ class DashboardScreen extends StatelessWidget {
                   // Nearest Medical Center Section
                   ASectionHeading(
                     title: 'Nearest Medical Center',
-                    showActionButton: true,
                     buttonTitle: 'See All',
-                    onPressed: () {},
+                    textColor: AColors.background,
                   ),
                   const SizedBox(height: ASizes.spaceBtwItems),
                   SizedBox(
@@ -175,23 +167,19 @@ class QuickActions extends StatelessWidget {
       children: [
         Expanded(
           child: QuickActionButton(
-            icon: Icons.medical_services_outlined,
+            icon: AImages.appointment,
             title: 'Book Doctor\nAppointment',
             subtitle: 'Find a Doctor or\nSpecialist',
             backgroundColor: AColors.categoryColor1,
-            iconColor: AColors.primary,
-
           ),
         ),
         const SizedBox(width: ASizes.spaceBtwItems),
         Expanded(
           child: QuickActionButton(
-            icon: Icons.local_hospital_outlined,
+            icon: AImages.hospital,
             title: 'Book Hospital\nAppointment',
-            subtitle: 'Locate nearby hospital\nto visit',
+            subtitle: 'Locate nearby hospital to visit',
             backgroundColor: AColors.categoryColor2,
-            iconColor: Colors.green,
-
           ),
         ),
       ],

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:paxform/common/icons/svg_icons.dart';
+import 'package:paxform/constants/image_strings.dart';
+import 'package:paxform/constants/sizes.dart';
 
 class ASectionHeading extends StatelessWidget {
   const ASectionHeading({
     super.key,
     this.textColor,
-    this.showActionButton = true,
+
     required this.title,
     this.buttonTitle = 'See all',
-    this.onPressed,
   });
 
   final Color? textColor;
-  final bool showActionButton;
+
   final String title, buttonTitle;
-  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +25,25 @@ class ASectionHeading extends StatelessWidget {
           title,
           style: Theme.of(
             context,
-          ).textTheme.headlineSmall!.apply(color: textColor),
+          ).textTheme.titleLarge,
           maxLines: 1,
-
           overflow: TextOverflow.ellipsis,
         ),
-        if (showActionButton)
-          TextButton(onPressed: onPressed, child: Text(buttonTitle)),
+        
+          Row(
+            children: [
+              Text(
+                buttonTitle,
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium!.apply(color: textColor),
+                maxLines: 1,
+              ),
+              SizedBox(width: ASizes.sm,),
+              ASvgIcon(svgIconName: AImages.arrow, width: 16, height: 16, iconColor: textColor,)
+          
+            ],
+          ),
       ],
     );
   }

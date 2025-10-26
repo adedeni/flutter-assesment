@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../constants/colors.dart';
-
 class ASvgIcon extends StatelessWidget {
   const ASvgIcon({
     super.key,
+    required this.svgIconName,
     this.width,
     this.height,
     this.iconColor,
-    required this.svgIconName,
   });
 
-  final double? width, height;
-  final Color? iconColor; 
   final String svgIconName;
+  final double? width;
+  final double? height;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +21,9 @@ class ASvgIcon extends StatelessWidget {
       svgIconName,
       width: width,
       height: height,
-      colorFilter: ColorFilter.mode(
-        iconColor ?? AColors.white,
-        BlendMode.srcIn,
-      ),
+      colorFilter: iconColor != null
+          ? ColorFilter.mode(iconColor!, BlendMode.srcIn)
+          : null,
     );
   }
 }
