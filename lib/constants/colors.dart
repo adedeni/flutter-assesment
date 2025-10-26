@@ -22,6 +22,7 @@ class AColors {
   static const Color buttonSecondary = Color(0xFF6C757D);
   static const Color buttonDisabled = Color(0xFFC4C4C4);
   static const Color slider = Color(0xFF1C85E8);
+  static const Color location = Color(0xFF20976C);
 
   // Category Background Colors
   static const Color categoryColor1 = Color(0xFFF9F5FF);

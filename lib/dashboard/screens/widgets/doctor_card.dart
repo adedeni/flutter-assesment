@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:paxform/common/icons/svg_icons.dart';
+import 'package:paxform/constants/image_strings.dart';
+import '../../../common/images/circular_image.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/sizes.dart';
 import '../../models/doctor_model.dart';
 
-
 class DoctorCard extends StatelessWidget {
-  const DoctorCard({
-    super.key,
-    required this.doctor,
-  });
+  const DoctorCard({super.key, required this.doctor});
 
   final Doctor doctor;
 
@@ -19,8 +17,15 @@ class DoctorCard extends StatelessWidget {
       padding: const EdgeInsets.all(ASizes.md),
       decoration: BoxDecoration(
         color: AColors.white,
-        borderRadius: BorderRadius.circular(ASizes.borderRadiusLg),
-        border: Border.all(color: AColors.borderPrimary),
+        borderRadius: BorderRadius.circular(ASizes.fontSizeSm),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(26),
+            blurRadius: 8.0,
+            spreadRadius: 0.0,
+            offset: Offset(0, 2),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,19 +35,7 @@ class DoctorCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Doctor Image
-              Container(
-                width: 56,
-                height: 56,
-                decoration: BoxDecoration(
-                  color: AColors.grey.withAlpha(77),
-                  borderRadius: BorderRadius.circular(ASizes.borderRadiusMd),
-                ),
-                child: Icon(
-                  Icons.person,
-                  color: AColors.textSecondary,
-                  size: 32,
-                ),
-              ),
+              ACircularImage(width: 38, height: 38, image: doctor.imagePath),
               const SizedBox(width: ASizes.sm),
               // Doctor Info
               Expanded(
@@ -67,18 +60,19 @@ class DoctorCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     Row(
                       children: [
-                        Icon(Icons.star, color: Colors.amber, size: 16),
-                        const SizedBox(width: 4),
                         Text(
                           '${doctor.rating}',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: AColors.textPrimary,
-                          ),
+                          style: Theme.of(context).textTheme.titleSmall!
+                              .copyWith(color: Color(0XFF33384B)),
+                        ),
+                        SizedBox(width: ASizes.xs),
+                        ASvgIcon(
+                          svgIconName: AImages.star,
+                          width: 16,
+                          height: 16,
                         ),
                         const SizedBox(width: 4),
-                        Icon(Icons.circle, size: 4, color: AColors.textSecondary),
+
                         const SizedBox(width: 4),
                         Text(
                           '${doctor.reviewCount} Reviews',
@@ -95,56 +89,70 @@ class DoctorCard extends StatelessWidget {
               // Favorite Icon
               Icon(
                 doctor.isFavorite ? Icons.favorite : Icons.favorite_border,
-                color: doctor.isFavorite ? Colors.red : AColors.textSecondary,
+                color: doctor.isFavorite
+                    ? Color(0xFFFF525E)
+                    : Color(0xFFD5D5D5),
                 size: 24,
               ),
             ],
           ),
           const SizedBox(height: ASizes.sm),
-          const Divider(),
-          const SizedBox(height: ASizes.sm),
           // Bottom Info
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               // Availability
-              Icon(Iconsax.calendar, size: 16, color: AColors.primary),
-              const SizedBox(width: 4),
+              ASvgIcon(
+                svgIconName: AImages.calendar2,
+                width: 18,
+                height: 18,
+                iconColor: AColors.background,
+              ),
+              const SizedBox(width: ASizes.sm),
               Text(
                 doctor.availabilityDay,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: AColors.primary,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.displayMedium!.copyWith(color: AColors.background),
               ),
               const SizedBox(width: ASizes.sm),
               // Time
-              Icon(Iconsax.clock, size: 16, color: AColors.textSecondary),
+              ASvgIcon(
+                svgIconName: AImages.clock,
+                width: 18,
+                height: 18,
+                iconColor: AColors.background,
+              ),
               const SizedBox(width: 4),
               Expanded(
                 child: Text(
                   doctor.availabilityTime,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: AColors.textSecondary,
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                    color: AColors.background,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: ASizes.xs),
+          const SizedBox(height: ASizes.sm),
+          Divider(),
+          const SizedBox(height: ASizes.sm),
           // Location
           Row(
             children: [
-              Icon(Iconsax.location, size: 16, color: Colors.green),
+               ASvgIcon(
+                svgIconName: AImages.location,
+                width: 18,
+                height: 18,
+                iconColor: AColors.location,
+              ),
               const SizedBox(width: 4),
               Expanded(
                 child: Text(
                   doctor.location,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: AColors.textSecondary,
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                    color: AColors.location,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -152,10 +160,9 @@ class DoctorCard extends StatelessWidget {
               const SizedBox(width: ASizes.sm),
               Text(
                 doctor.distance,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: AColors.textSecondary,
-                ),
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                    color: AColors.textSecondary,
+                  ),
               ),
             ],
           ),
