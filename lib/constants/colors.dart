@@ -28,11 +28,6 @@ class AColors {
   // Category Background Colors
   static const Color categoryColor1 = Color(0xFFF9F5FF);
   static const Color categoryColor2 = Color(0xFFEDFCF2);
-  static const Color categoryPink = Color(0xFFFCE4EC);
-  static const Color categoryGreen = Color(0xFFE8F5E9);
-  static const Color categoryPurple = Color(0xFFF3E5F5);
-  static const Color categoryYellow = Color(0xFFFFF9C4);
-  static const Color categoryOrange = Color(0xFFFFE0B2);
 
   // Neutral Shades
   static const Color black = Color(0xFF232323);
@@ -45,5 +40,5 @@ class AColors {
 
   // Border Colors
   static const Color borderPrimary = Color(0xFFD9D9D9);
-  static const Color borderSecondary = Color(0xFFE6E6E6);
+
 }
