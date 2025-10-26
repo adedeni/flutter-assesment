@@ -16,6 +16,7 @@ class AColors {
   static const Color textSecondary = Color(0xFF333333);
   static const Color textWhite = Colors.white;
   static const Color textLight = Color(0xFF9E9E9E);
+  static const Color textAccent = Color(0xFF33384B);
 
   // Button Colors
   static const Color buttonPrimary = Color(0xFF0D6EFD);
